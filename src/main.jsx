@@ -11,6 +11,7 @@ import AllJobs from "./component/AllJobs/AllJobs.jsx";
 import Register from "./component/Register/Register.jsx";
 import AddAJob from "./AddAJob/AddAJob.jsx";
 import MyAddedJobs from "./MyAddedJobs/MyAddedJobs.jsx";
+import JobsDetails from "./component/JobsDetails/JobsDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -21,10 +22,17 @@ const router = createBrowserRouter([
         index: true,
         Component: Home,
       },
+      //  all jobs sob ak bare dekanor jonno
       {
         path: "all-Jobs",
         loader: () => fetch("http://localhost:3000/models"),
         Component: AllJobs,
+      },
+            // ata ak akta datar details dekanor jonno
+      {    
+        path: "/jobsdetails/:id",
+        loader:({params}) => fetch(`http://localhost:3000/models/${params.id}`),
+        Component: JobsDetails,
       },
       {
         path: "register",

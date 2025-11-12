@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 
 const AllJobs = () => {
   const data = useLoaderData();
@@ -19,8 +19,8 @@ const AllJobs = () => {
             <h2 className="card-title text-center">{alljob.title}</h2>
             <p className="text-center">{alljob.summary} </p>
             <div className="card-actions justify-end">
-              {/* <div className="badge badge-outline">Fashion</div>
-      <div className="badge badge-outline">Products</div> */}
+             <Link to={`/jobsdetails/${alljob._id}`}> <div className="badge badge-outline">View Details</div></Link>
+      {/* <div className="badge badge-outline">Products</div> */}
             </div>
           </div>
         </div>

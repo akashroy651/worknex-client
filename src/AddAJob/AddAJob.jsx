@@ -16,7 +16,23 @@ const { user } = use(AuthContext)
       coverimage: e.target.coverimage.value,
       userEmail: user.email
     };
-    console.log(fromData)
+   
+    fetch('http://localhost:3000/models',{
+        method: "POST",
+        headers:{
+            "content-type": "application/json",
+        },
+        body: JSON.stringify(fromData)
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+    })
+    .catch(err => {
+        console.log(err)
+    })
+
+
   };
   return (
     <div>
