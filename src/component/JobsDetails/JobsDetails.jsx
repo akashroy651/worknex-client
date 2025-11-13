@@ -25,10 +25,7 @@ const JobsDetails = () => {
 
         fetch(`http://localhost:3000/models/${jobDetails._id}`,{
             method: "DELETE",
-            // headers:{
-            //     "content-type": "application/json",
-            // },
-            // body: JSON.stringify(fromData)
+            
         })
         .then(res => res.json())
         .then(data => {
