@@ -1,7 +1,7 @@
 import React from "react";
 import { TbMarquee } from "react-icons/tb";
 
-const HomeHeader = () => {
+const Banner = () => {
   return (
     <div>
       <div className="relative w-full">
@@ -76,4 +76,4 @@ const HomeHeader = () => {
   );
 };
 
-export default HomeHeader;
+export default Banner;
