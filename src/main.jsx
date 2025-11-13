@@ -13,6 +13,9 @@ import AddAJob from "./AddAJob/AddAJob.jsx";
 import MyAddedJobs from "./MyAddedJobs/MyAddedJobs.jsx";
 import JobsDetails from "./component/JobsDetails/JobsDetails.jsx";
 import JobsUpdate from "./component/JobsUpdate/JobsUpdate.jsx";
+import ModelsCard from "./component/Home/ModelsCard.jsx";
+// import ModelsCard from "./component/Home/ModelsCard.jsx";
+
 
 const router = createBrowserRouter([
   {
@@ -22,6 +25,11 @@ const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
+      },
+      {
+        path: "/modelscard",
+        // loader: () => fetch("http://localhost:3000/modelscard"),
+        element: <ModelsCard></ModelsCard>
       },
       //  all jobs sob ak bare dekanor jonno
       {

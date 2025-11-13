@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useLoaderData } from "react-router";
 
 const AllJobs = () => {
+
+  // ata use kore display top view korar jonno
+    useEffect(() => {
+    window.scrollTo(0, 0); // page top এ নিয়ে আসে
+  }, []);
 
   // home page description control
  function shortenText(text, wordLimit = 10) {
