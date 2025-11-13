@@ -1,7 +1,11 @@
 import React, { use } from "react";
 import { AuthContext } from "../contexts/AuthContext";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router";
 
 const AddAJob = () => {
+
+    const navigate = useNavigate();
 
 const { user } = use(AuthContext)
 
@@ -27,6 +31,12 @@ const { user } = use(AuthContext)
     .then(res => res.json())
     .then(data => {
         console.log(data)
+         Swal.fire({
+                  title: "New Job Added",
+                  icon: "success",
+                  draggable: true,
+                });
+                navigate('/all-Jobs')
     })
     .catch(err => {
         console.log(err)
@@ -57,7 +67,7 @@ const { user } = use(AuthContext)
           />
         </div>
 
-        {/* <!-- Category --> */}
+         {/* Category  */}
         <div className="form-control">
           <label className="label">
             <span className="label-text font-semibold">Category</span>
@@ -65,7 +75,6 @@ const { user } = use(AuthContext)
           <select
             name="category"
             className="select select-bordered w-full"
-         
             required
           >
             <option value="">
@@ -77,7 +86,7 @@ const { user } = use(AuthContext)
           </select>
         </div>
 
-        {/* <!-- Title --> */}
+        {/*  Title  */}
         <div className="form-control">
           <label className="label">
             <span className="label-text font-semibold">Job Title</span>
@@ -91,7 +100,7 @@ const { user } = use(AuthContext)
           />
         </div>
 
-        {/* <!-- Image URL --> */}
+        {/* Image URL  */}
         <div className="form-control">
           <label className="label">
             <span className="label-text font-semibold">Image URL</span>
@@ -105,7 +114,7 @@ const { user } = use(AuthContext)
           />
         </div>
 
-        {/* <!-- Description --> */}
+        {/*  Description  */}
         <div className="form-control">
           <label className="label">
             <span className="label-text font-semibold">Description</span>
@@ -119,7 +128,7 @@ const { user } = use(AuthContext)
           ></textarea>
         </div>
 
-        {/* <!-- Submit Button --> */}
+        {/*  Submit Button  */}
         <div className="form-control mt-4">
           <button type="submit" className="btn btn-primary w-full">
             Add Job

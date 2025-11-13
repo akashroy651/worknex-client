@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useLoaderData, useNavigate } from "react-router";
+import Swal from "sweetalert2";
 
 const JobsDetails = () => {
 
@@ -8,6 +9,43 @@ const JobsDetails = () => {
     const data = useLoaderData();
     const jobDetails =data.result;
     console.log(jobDetails)
+
+    const handleDelete = () =>{
+      Swal.fire({
+  title: "Are you sure?",
+  text: "You won't be able to revert this!",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Yes, delete it!"
+}).then((result) => {
+  if (result.isConfirmed) {
+
+
+        fetch(`http://localhost:3000/models/${jobDetails._id}`,{
+            method: "DELETE",
+            // headers:{
+            //     "content-type": "application/json",
+            // },
+            // body: JSON.stringify(fromData)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+             Swal.fire({
+                      title: "New Job Added",
+                      icon: "success",
+                      draggable: true,
+                    });
+                    navigate('/all-Jobs')
+        })
+        .catch(err => {
+            console.log(err)
+        })
+  }
+});
+    }
 
   return (
     <div>
@@ -46,10 +84,10 @@ const JobsDetails = () => {
 
           {/* Action Button */}
           <div className="mt-6 mb-5 ">
-           <Link to={`/jobsupdate/${jobDetails._id}`}> <button className="btn btn-primary hover:bg-amber-700 hover:text-black w-full md:w-auto mr-5">
+           <Link to={`/jobsupdate/${jobDetails._id}`}> <button className="btn btn-primary hover:bg-green-100 hover:text-black w-full md:w-auto mr-5">
               Update Job
             </button></Link>
-            <button className="btn btn-primary hover:bg-amber-700 hover:text-black w-full md:w-auto">
+            <button onClick={handleDelete} className="btn  hover:bg-amber-200 hover:text-black w-full md:w-auto">
               Delete Now
             </button>
           </div>
