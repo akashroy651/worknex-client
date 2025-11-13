@@ -5,16 +5,19 @@
 
 import {  useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
+import { useNavigate } from "react-router";
 
 
 const Register = () => {
 
 const {signInWithGoogle} = useContext(AuthContext)
 
+const navigate = useNavigate();
 
 const handleGoogleSignIn = () => {
     signInWithGoogle()
     .then(result => {
+        navigate("/")
         console.log(result);
         // console.log(result.user);
         // const newUser = {

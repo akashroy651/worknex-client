@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData, useNavigate } from "react-router";
+import { Link, useLoaderData, useNavigate } from "react-router";
 
 const JobsDetails = () => {
 
@@ -45,11 +45,14 @@ const JobsDetails = () => {
           </p>
 
           {/* Action Button */}
-          {/* <div className="mt-6">
-            <button className="btn btn-primary w-full md:w-auto">
-              Apply Now
+          <div className="mt-6 mb-5 ">
+           <Link to={`/jobsupdate/${jobDetails._id}`}> <button className="btn btn-primary hover:bg-amber-700 hover:text-black w-full md:w-auto mr-5">
+              Update Job
+            </button></Link>
+            <button className="btn btn-primary hover:bg-amber-700 hover:text-black w-full md:w-auto">
+              Delete Now
             </button>
-          </div> */}
+          </div>
           <button
             onClick={() => navigate(-1)}
             className="btn btn-outline w-full md:w-auto">
