@@ -9,7 +9,7 @@ import { use, useEffect, useState } from "react";
 const Navbar = () => {
 
   // theme color save rakar jonno localstorage use
-  const { theme, setTheme} =useState(localStorage.getItem("theme") || "light");
+  const [ theme, setTheme] =useState(localStorage.getItem("theme") || "light");
 
   useEffect(() => {
   const  html = document.querySelector('html');
@@ -21,7 +21,7 @@ const Navbar = () => {
   // theme color change 
   const handleTheme = (checked) => {
  
-  setTheme(checked ? "dark" : "light")
+  setTheme(checked? "dark" : "light")
 
   }
 
