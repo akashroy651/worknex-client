@@ -14,6 +14,7 @@ import MyAddedJobs from "./MyAddedJobs/MyAddedJobs.jsx";
 import JobsDetails from "./component/JobsDetails/JobsDetails.jsx";
 import JobsUpdate from "./component/JobsUpdate/JobsUpdate.jsx";
 import ModelsCard from "./component/Home/ModelsCard.jsx";
+import PrivateRoute from "./Routes/PrivateRoute.jsx";
 // import ModelsCard from "./component/Home/ModelsCard.jsx";
 
 const router = createBrowserRouter([
@@ -41,7 +42,8 @@ const router = createBrowserRouter([
         path: "/jobsdetails/:id",
         loader: ({ params }) =>
           fetch(`http://localhost:3000/models/${params.id}`),
-        Component: JobsDetails,
+        // Component: JobsDetails,
+        element: <PrivateRoute> <JobsDetails></JobsDetails></PrivateRoute>
       },
       {
         path: "/jobsupdate/:id",
