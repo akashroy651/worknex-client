@@ -1,13 +1,19 @@
 import React from "react";
+import { Link } from "react-router";
 
 const Footer = () => {
+    
   return (
     <div>
       <footer className="footer mt-5 h-45 footer-center rounded-2xl bg-black sm:bg-black md:bg-black lg:bg-black text-primary-content p-10">
         <aside>
           <p className="font-bold text-4xl">
-           <span className="font-extrabold
+          
+          <Link to="/">
+                 <span className="font-extrabold
           ">Work<span className="font-extrabold text-fuchsia-400">Nex</span></span>
+          </Link>
+
           </p>
           <p> Providing reliable tech since 1992</p>
           <p>Copyright © {new Date().getFullYear()} - All right reserved</p>

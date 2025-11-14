@@ -16,7 +16,6 @@ import JobsUpdate from "./component/JobsUpdate/JobsUpdate.jsx";
 import ModelsCard from "./component/Home/ModelsCard.jsx";
 // import ModelsCard from "./component/Home/ModelsCard.jsx";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -29,7 +28,7 @@ const router = createBrowserRouter([
       {
         path: "/modelscard",
         // loader: () => fetch("http://localhost:3000/modelscard"),
-        element: <ModelsCard></ModelsCard>
+        element: <ModelsCard></ModelsCard>,
       },
       //  all jobs sob ak bare dekanor jonno
       {
@@ -37,15 +36,17 @@ const router = createBrowserRouter([
         loader: () => fetch("http://localhost:3000/models"),
         Component: AllJobs,
       },
-            // ata ak akta datar details dekanor jonno
-      {    
+      // ata ak akta datar details dekanor jonno
+      {
         path: "/jobsdetails/:id",
-        loader:({params}) => fetch(`http://localhost:3000/models/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/models/${params.id}`),
         Component: JobsDetails,
       },
       {
         path: "/jobsupdate/:id",
-         loader:({params}) => fetch(`http://localhost:3000/models/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/models/${params.id}`),
         Component: JobsUpdate,
       },
 
