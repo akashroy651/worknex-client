@@ -4,22 +4,24 @@
 
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../../contexts/AuthContext";
-import { use } from "react";
+import { use, useEffect, useState } from "react";
 
 const Navbar = () => {
 
-  // theme color save rakar jonno localsrorge use
-  
+  // theme color save rakar jonno localstorage use
+  const { theme, setTheme} =useState(localStorage.getItem("theme") || "light");
+
+  useEffect(() => {
+  const  html = document.querySelector('html');
+    html.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme)
+  },[theme])
 
 
   // theme color change 
   const handleTheme = (checked) => {
-   const  html = document.querySelector('html');
-   if(checked) {
-    html.setAttribute("data-theme", "dark");
-   } else {
-    html.setAttribute("data-theme","light");
-   }
+ 
+  setTheme(checked ? "dark" : "light")
 
   }
 
