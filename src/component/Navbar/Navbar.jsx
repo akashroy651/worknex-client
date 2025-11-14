@@ -29,8 +29,7 @@ const Navbar = () => {
 
 
   const { user, signOutUser } = use(AuthContext);
-//   console.log("User photo:", user?.photoURL);
-  // const {photoURL} = user
+
   const handleSignOut = () => {
     signOutUser().then().catch();
   };
