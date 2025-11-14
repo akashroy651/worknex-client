@@ -5,7 +5,7 @@ import ModelsCard from './ModelsCard';
 
 const Home = () => {
        useEffect(() => {
-        window.scrollTo(0, 0); // page top এ নিয়ে আসে
+        window.scrollTo(0, 0); 
       }, []);
     return (
         <div className='mt-10'>

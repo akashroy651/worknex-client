@@ -1,7 +1,4 @@
-// import React, { useEffect, useState } from 'react';
-// import { AuthContext } from './AuthContext';
-// import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
-// import { auth } from '../firebase/firebase.init';
+
 
 import { useEffect, useState } from "react";
 import { auth } from "../firebase/firebase.init";
@@ -31,20 +28,7 @@ const AuthProvider = ({children}) => {
         return signInWithPopup(auth, googleProvider)
     }
 
-//     //  ami new likci
-// const signInWithGoogle = async () => {
-//     setLoading(true);
-//     try {
-//         const result = await signInWithPopup(auth, googleProvider);
-//         return result
-//     }catch(error){
-//         console.log(error);
-//         throw error;
-//     }
-// }
-
-
-    //  end 
+ 
 
 
     const signOutUser = () => {

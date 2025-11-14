@@ -14,8 +14,7 @@ const Banner = () => {
               className="w-full h-[60vh] object-cover rounded-lg"
             />
             <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-              {/* <a href="#slide4" className="btn btn-circle"></a>
-        <a href="#slide2" className="btn btn-circle"></a> */}
+            
             </div>
           </div>
 
@@ -26,8 +25,7 @@ const Banner = () => {
               className="w-full h-[60vh] object-cover rounded-lg"
             />
             <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-              {/* <a href="#slide1" className="btn btn-circle"></a>
-        <a href="#slide3" className="btn btn-circle"></a> */}
+           
             </div>
           </div>
 
@@ -38,8 +36,7 @@ const Banner = () => {
               className="w-full h-[60vh] object-cover rounded-lg"
             />
             <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-              {/* <a href="#slide2" className="btn btn-circle"></a>
-        <a href="#slide4" className="btn btn-circle"></a> */}
+        
             </div>
           </div>
 
@@ -56,7 +53,7 @@ const Banner = () => {
           </div>
         </div>
 
-        {/* Dots Indicators */}
+        {/* number  */}
         <div className="flex justify-center w-full py-2 gap-2 mt-2">
           <a href="#slide1" className="btn btn-xs">
             1

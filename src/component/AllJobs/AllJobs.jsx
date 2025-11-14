@@ -5,7 +5,7 @@ const AllJobs = () => {
 
   // ata use kore display top view korar jonno
     useEffect(() => {
-    window.scrollTo(0, 0); // page top এ নিয়ে আসে
+    window.scrollTo(0, 0); 
   }, []);
 
   // home page description control
