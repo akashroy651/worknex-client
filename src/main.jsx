@@ -43,7 +43,12 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:3000/models/${params.id}`),
         // Component: JobsDetails,
-        element: <PrivateRoute> <JobsDetails></JobsDetails></PrivateRoute>
+        element: (
+          <PrivateRoute>
+            {" "}
+            <JobsDetails></JobsDetails>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/jobsupdate/:id",

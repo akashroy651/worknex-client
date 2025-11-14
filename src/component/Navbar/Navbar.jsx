@@ -7,6 +7,25 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { use } from "react";
 
 const Navbar = () => {
+
+  // theme color save rakar jonno localsrorge use
+  
+
+
+  // theme color change 
+  const handleTheme = (checked) => {
+   const  html = document.querySelector('html');
+   if(checked) {
+    html.setAttribute("data-theme", "dark");
+   } else {
+    html.setAttribute("data-theme","light");
+   }
+
+  }
+
+
+
+
   const { user, signOutUser } = use(AuthContext);
 //   console.log("User photo:", user?.photoURL);
   // const {photoURL} = user
@@ -90,11 +109,11 @@ const Navbar = () => {
   {user ? (
     <div className="flex items-center gap-3">
       {/* 🧠 User Photo with Tooltip */}
-      <div className="relative group inline-block">
+      <div className="relative  group inline-block">
         <img
           src={user?.photoURL || "https://i.ibb.co/2d3s5Jt/default-user.png"}
           alt={user?.displayName || "User"}
-          className="w-10 h-10 rounded-full border-2 border-primary cursor-pointer transition-transform duration-300 group-hover:scale-110"
+          className="w-16   rounded-full border-2 border-primary cursor-pointer transition-transform duration-300 group-hover:scale-110"
         />
 
         {/* Tooltip */}
@@ -103,7 +122,14 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* 🚪 Sign Out Button */}
+    
+         {/* theme change option */}
+      <li> <span>Theme</span> <br />
+        <input onChange={(e)=> handleTheme(e.target.checked)} type="checkbox"
+      defaultChecked={localStorage.getItem('theme') === "dark"} className="toggle" />
+      
+      </li>
+        {/*  Sign Out Button */}
       <button onClick={handleSignOut} className="btn btn-primary btn-sm">
         Sign Out
       </button>
