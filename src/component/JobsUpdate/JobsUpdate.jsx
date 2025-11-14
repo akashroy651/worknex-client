@@ -3,7 +3,7 @@ import { useLoaderData, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 
 const JobsUpdate = () => {
-    const navigate =useNavigate()
+  const navigate = useNavigate();
   const data = useLoaderData();
   const jobsUpdate = data.result;
 
@@ -18,7 +18,7 @@ const JobsUpdate = () => {
       coverimage: e.target.coverimage.value,
     };
 
-    fetch(`http://localhost:3000/models/${jobsUpdate._id}`, {
+    fetch(`https://worknex-server.vercel.app/models/${jobsUpdate._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -33,7 +33,7 @@ const JobsUpdate = () => {
           icon: "success",
           draggable: true,
         });
-        navigate(`/jobsdetails/${jobsUpdate._id}`)
+        navigate(`/jobsdetails/${jobsUpdate._id}`);
       })
       .catch((err) => {
         console.log(err);

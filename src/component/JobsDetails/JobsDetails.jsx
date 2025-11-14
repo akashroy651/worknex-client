@@ -3,50 +3,46 @@ import { Link, useLoaderData, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 
 const JobsDetails = () => {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
+  const data = useLoaderData();
+  const jobDetails = data.result;
+  console.log(jobDetails);
 
-    const data = useLoaderData();
-    const jobDetails =data.result;
-    console.log(jobDetails)
-
-    const handleDelete = () =>{
-      Swal.fire({
-  title: "Are you sure?",
-  text: "You won't be able to revert this!",
-  icon: "warning",
-  showCancelButton: true,
-  confirmButtonColor: "#3085d6",
-  cancelButtonColor: "#d33",
-  confirmButtonText: "Yes, delete it!"
-}).then((result) => {
-  if (result.isConfirmed) {
-
-
-        fetch(`http://localhost:3000/models/${jobDetails._id}`,{
-            method: "DELETE",
-            
+  const handleDelete = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`https://worknex-server.vercel.app/models/${jobDetails._id}`, {
+          method: "DELETE",
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-             Swal.fire({
-                      title: "New Job Added",
-                      icon: "success",
-                      draggable: true,
-                    });
-                    navigate('/all-Jobs')
-        })
-        .catch(err => {
-            console.log(err)
-        })
-  }
-});
-    }
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            Swal.fire({
+              title: "New Job Added",
+              icon: "success",
+              draggable: true,
+            });
+            navigate("/all-Jobs");
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+    });
+  };
 
   return (
     <div>
-        <h1>iuegcdb xjk</h1>
+      <h1>iuegcdb xjk</h1>
       <div className="max-w-5xl mx-auto bg-base-100 shadow-xl rounded-2xl overflow-hidden mt-10 border border-gray-200">
         {/* Image Section */}
         <div className="relative">
@@ -70,7 +66,9 @@ const JobsDetails = () => {
           {/* Posted By */}
           <p className="text-gray-500 font-medium mb-1">
             Posted By:{" "}
-            <span className="text-primary font-semibold">{jobDetails.postedBy}</span>
+            <span className="text-primary font-semibold">
+              {jobDetails.postedBy}
+            </span>
           </p>
           <p className="text-gray-500 mb-4">Email:{jobDetails.userEmail} </p>
 
@@ -81,16 +79,23 @@ const JobsDetails = () => {
 
           {/* Action Button */}
           <div className="mt-6 mb-5 ">
-           <Link to={`/jobsupdate/${jobDetails._id}`}> <button className="btn btn-primary hover:bg-green-100 hover:text-black w-full md:w-auto mr-5">
-              Update Job
-            </button></Link>
-            <button onClick={handleDelete} className="btn  hover:bg-amber-200 hover:text-black w-full md:w-auto">
+            <Link to={`/jobsupdate/${jobDetails._id}`}>
+              {" "}
+              <button className="btn btn-primary hover:bg-green-100 hover:text-black w-full md:w-auto mr-5">
+                Update Job
+              </button>
+            </Link>
+            <button
+              onClick={handleDelete}
+              className="btn  hover:bg-amber-200 hover:text-black w-full md:w-auto"
+            >
               Delete Now
             </button>
           </div>
           <button
             onClick={() => navigate(-1)}
-            className="btn btn-outline w-full md:w-auto">
+            className="btn btn-outline w-full md:w-auto"
+          >
             ← Back
           </button>
         </div>

@@ -6,7 +6,7 @@ const ModelsCard = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:3000/modelscard")
+    fetch("https://worknex-server.vercel.app/modelscard")
       .then((res) => res.json())
       .then((json) => {
         setData(json);
@@ -38,9 +38,7 @@ const ModelsCard = () => {
           <div className="card-body justify-start text-center ">
             <h2 className="card-title text-center">{card.title}</h2>
             <p className="text-center">{shortenText(card.summary, 10)} </p>
-            <div className="card-actions justify-end">
-            
-            </div>
+            <div className="card-actions justify-end"></div>
           </div>
         </div>
       ))}

@@ -28,20 +28,20 @@ const router = createBrowserRouter([
       },
       {
         path: "/modelscard",
-        // loader: () => fetch("http://localhost:3000/modelscard"),
+        // loader: () => fetch("https://worknex-server.vercel.app/modelscard"),
         element: <ModelsCard></ModelsCard>,
       },
       //  all jobs sob ak bare dekanor jonno
       {
         path: "all-Jobs",
-        loader: () => fetch("http://localhost:3000/models"),
+        loader: () => fetch("https://worknex-server.vercel.app/models"),
         Component: AllJobs,
       },
       // ata ak akta datar details dekanor jonno
       {
         path: "/jobsdetails/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/models/${params.id}`),
+          fetch(`https://worknex-server.vercel.app/models/${params.id}`),
         // Component: JobsDetails,
         element: (
           <PrivateRoute>
@@ -53,7 +53,7 @@ const router = createBrowserRouter([
       {
         path: "/jobsupdate/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/models/${params.id}`),
+          fetch(`https://worknex-server.vercel.app/models/${params.id}`),
         Component: JobsUpdate,
       },
 
