@@ -31,7 +31,7 @@ const MyAddedJobs = () => {
     }
 
     const url = `http://localhost:3000/myadd?email=${user.email}`;
-    // console.log("Fetching:", url);
+   
 
     fetch(url)
       .then(res => res.json())
